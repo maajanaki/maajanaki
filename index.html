@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maa Janaki Stay - Room Rentals in Sitamarhi, Bihar</title>
+    <!-- Google Fonts for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        /* Hero Section */
+        header {
+            background: linear-gradient(135deg, rgba(0, 123, 255, 0.8), rgba(0, 123, 255, 0.6)), url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+        header h1, header p {
+            position: relative;
+            z-index: 2;
+        }
+        header h1 {
+            font-size: 3.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        header p {
+            font-size: 1.3em;
+            font-weight: 400;
+            margin-bottom: 20px;
+            max-width: 600px;
+        }
+        .cta-button {
+            position: relative;
+            z-index: 2;
+            background: #fff;
+            color: #007bff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .cta-button:hover {
+            background: #007bff;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Sections */
+        section {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+        section h2 {
+            font-size: 2.5em;
+            font-weight: 600;
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        /* Rooms */
+        .rooms {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .room {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+        .room:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+        .room img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        .room h3 {
+            font-size: 1.5em;
+            font-weight: 600;
+            margin: 20px 0 10px;
+            color: #333;
+        }
+        .room p {
+            padding: 0 20px;
+            color: #666;
+        }
+        .pricing {
+            font-weight: 700;
+            color: #007bff;
+            font-size: 1.2em;
+            margin: 20px 0;
+        }
+
+        /* Offers */
+        .offers {
+            background: linear-gradient(135deg, #e8f5e8, #d4edda);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        .offers ul {
+            list-style: none;
+            padding: 0;
+        }
+        .offers li {
+            font-size: 1.1em;
+            margin: 10px 0;
+            color: #155724;
+        }
+
+        /* Map */
+        .map iframe {
+            width: 100%;
+            height: 400px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Booking Form */
+        .booking-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .booking-form input, .booking-form select {
+            width: 100%;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+        .booking-form input:focus, .booking-form select:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+        .booking-form button {
+            width: 100%;
+            padding: 15px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+        }
+        .booking-form button:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        /* Payment */
+        .payment {
+            text-align: center;
+        }
+        .payment img {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        .payment button {
+            margin-top: 20px;
+            background: #28a745;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+        }
+        .payment button:hover {
+            background: #218838;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #343a40;
+            color: white;
+            font-size: 0.9em;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            header {
+                padding: 60px 20px;
+                min-height: 50vh;
+            }
+            header h1 {
+                font-size: 2.5em;
+            }
+            header p {
+                font-size: 1.1em;
+            }
+            section {
+                padding: 20px;
+                margin: 20px;
+            }
+            .rooms {
+                grid-template-columns: 1fr;
+            }
+            .map iframe {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Maa Janaki Stay</h1>
+        <p>Comfortable Room Rentals in Sitamarhi, Bihar | Short Stays or Monthly Basis</p>
+        <p>Contact: Shivam Kumar | Mobile: 6299253280 | Email: maajanakistay843302@gmail.com</p>
+        <a href="#booking" class="cta-button">Book Now</a>
+    </header>
+
+    <section id="rooms">
+        <h2>Our Rooms</h2>
+        <div class="rooms">
+            <div class="room">
+                <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Single Room">
+                <h3>Single Room</h3>
+                <p>Perfect for solo travelers. Cozy and affordable.</p>
+                <p class="pricing">₹500/day or ₹3000/month</p>
+            </div>
+            <div class="room">
+                <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="1BHK Apartment">
+                <h3>1BHK Apartment</h3>
+                <p>Ideal for couples or small families. Spacious and modern.</p>
+                <p class="pricing">₹800/day or ₹4500/month</p>
+            </div>
+            <div class="room">
+                <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="2BHK Apartment">
+                <h3>2BHK Apartment</h3>
+                <p>Great for families. Fully furnished with amenities.</p>
+                <p class="pricing">₹1200/day or ₹6000/month</p>
+            </div>
+            <div class="room">
+                <img src="https://images.unsplash.com/photo-1560185127-6ed189bf02f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="3BHK Apartment">
+                <h3>3BHK Apartment</h3>
+                <p>Luxury option for larger groups. Premium comfort.</p>
+                <p class="pricing">₹2000/day or ₹7000/month</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="offers" class="offers">
+        <h2>Special Offers</h2>
+        <ul>
+            <li>10% off for monthly bookings over 3 months.</li>
+            <li>Free Wi-Fi and breakfast for stays over 7 days.</li>
+            <li>Early bird discount: Book 2 weeks in advance and save 15%.</li>
+        </ul>
+    </section>
+
+    <section id="location" class="map">
+        <h2>Our Location</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.902!2d85.490!3d26.587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed5b8b8b8b8b8b%3A0x8b8b8b8b8b8b8b8b!2sSitamarhi%2C%20Bihar!5e0!3m2!1sen!2sin!4v1690000000000!5m2!1sen!2sin" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </section>
+
+    <section id="booking">
+        <h2>Book Your Stay</h2>
+        <form class="booking-form" onsubmit="alert('Booking request submitted! We will contact you soon.'); return false;">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <input type="tel" placeholder="Your Phone" required>
+            <select required>
+                <option value="">Select Room Type</option>
+                <option value="single">Single Room</option>
+                <option value="1bhk">1BHK Apartment</option>
+                <option value="2bhk">2BHK Apartment</option>
+                <option value="3bhk">3BHK Apartment</option>
+            </select>
+            <input type="date" placeholder="Check-in Date" required>
+            <input type="number" placeholder="Number of Days/Months" required>
+            <button type="submit">Submit Booking</button>
+        </form>
+    </section>
+
+    <section id="payment" class="payment">
+        <h2>Online Payment</h2>
+        <p>Pay securely via UPI. Scan the QR or use the button below.</p>
+        <img src="https://via.placeholder.com/200x200?text=UPI+QR+Code" alt="UPI QR Code">
+        <br><br>
+        <button onclick="window.open('upi://pay?pa=yourupiid@upi&pn=Maa%20Janaki%20Stay&am=0&cu=INR', '_blank')">Pay via UPI</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Maa Janaki Stay. All rights reserved. | Shivam Kumar</p>
+    </footer>
+
+    <script>
+        // Optional: Add any JS for interactivity, e.g., form validation
+    </script>
+</body>
+</html>
